@@ -2,16 +2,135 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <title>Projects | Avinash Portfolio</title>
-    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+
+        body {
+            background: linear-gradient(135deg, #232526 0%, #414345 100%);
+            color: #fff;
+            font-family: 'Montserrat', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: fadeIn 1s;
+        }
+
+        h2 {
+            margin-top: 60px;
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+            color: #ffb347;
+            text-shadow: 2px 2px 8px #222;
+            animation: slideDown 1s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-40px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+
+        .projects-container {
+            width: 100%;
+            max-width: 1000px;
+            padding: 30px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .project-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeInUp 0.7s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 6px 24px rgba(255,179,71,0.2);
+            background: rgba(255,179,71,0.08);
+        }
+
+        .project-card a {
+            font-size: 1.2rem;
+            color: #ffb347;
+            font-weight: bold;
+            text-decoration: none;
+            transition: color 0.2s, text-shadow 0.2s;
+        }
+
+        .project-card a:hover {
+            color: #fff;
+            text-shadow: 0 0 8px #ffb347;
+        }
+
+        .project-description {
+            margin-top: 8px;
+            font-size: 1rem;
+            color: #e0e0e0;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+
+        nav {
+            margin-top: auto;
+            padding: 30px 0 20px 0;
+            width: 100%;
+            text-align: center;
+            background: rgba(0,0,0,0.15);
+            border-top: 1px solid #333;
+            animation: fadeIn 1.5s;
+        }
+
+        nav a {
+            color: #ffb347;
+            margin: 0 18px;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            transition: color 0.2s, border-bottom 0.2s;
+            padding-bottom: 2px;
+            border-bottom: 2px solid transparent;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            color: #fff;
+            border-bottom: 2px solid #ffb347;
+        }
+
+        @media (max-width: 600px) {
+            h2 { font-size: 2rem; }
+            .project-card a { font-size: 1rem; }
+            .project-description { font-size: 0.95rem; }
+            nav a { font-size: 1rem; margin: 0 8px; }
+        }
+    </style>
 </head>
 <body>
 <h2>My Projects</h2>
-<ul th:each="pr : ${projects}">
-    <li>
-        <a th:href="${pr.url}" th:text="${pr.title}"></a> -
-        <span th:text="${pr.description}"></span>
-    </li>
-</ul>
+
+<div class="projects-container">
+    <div class="project-card" th:each="pr : ${projects}">
+        <a th:href="${pr.url}" th:text="${pr.title}" target="_blank">Project Title</a>
+        <p class="project-description" th:text="${pr.description}">Project description goes here.</p>
+    </div>
+</div>
+
 <nav>
     <a href="/">Home</a> |
     <a href="/about">About</a> |
