@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Skills | Avinash Portfolio</title>
+    <meta charset="UTF-8">
+    <title>Skills & Contact | Avinash Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
@@ -15,8 +16,29 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            align-items: center;
             animation: fadeIn 1s;
+        }
+
+        header {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        header h1 {
+            font-size: 2.7rem;
+            color: #ffb347;
+            text-shadow: 2px 2px 8px #000;
+            animation: slideDown 1s ease-out;
+        }
+
+        header p {
+            margin-top: 12px;
+            font-size: 1.1rem;
+            color: #e0e0e0;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 15px;
         }
 
         @keyframes fadeIn {
@@ -24,26 +46,27 @@
             to { opacity: 1; transform: translateY(0);}
         }
 
-        h2 {
-            margin-top: 60px;
-            font-size: 2.5rem;
-            letter-spacing: 2px;
-            color: #ffb347;
-            text-shadow: 2px 2px 8px #222;
-            animation: slideDown 1s;
-        }
-
         @keyframes slideDown {
             from { opacity: 0; transform: translateY(-40px);}
             to { opacity: 1; transform: translateY(0);}
         }
 
-        .skills-desc {
+        h2 {
+            margin-top: 60px;
+            font-size: 2.3rem;
+            letter-spacing: 1px;
+            color: #ffb347;
+            text-align: center;
+        }
+
+        .skills-desc, .contact-desc {
             font-size: 1.2rem;
             color: #e0e0e0;
             margin-top: 10px;
             text-align: center;
             max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .skills-container {
@@ -89,9 +112,33 @@
             to { opacity: 1; transform: translateY(0);}
         }
 
+        .contact-section {
+            margin-top: 70px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .contact-info {
+            margin-top: 20px;
+            font-size: 1.1rem;
+        }
+
+        .contact-info a {
+            display: inline-block;
+            margin: 10px 15px;
+            color: #ffb347;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .contact-info a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
         nav {
             margin-top: auto;
-            padding: 30px 0 20px 0;
+            padding: 25px 0;
             width: 100%;
             text-align: center;
             background: rgba(0,0,0,0.15);
@@ -116,14 +163,22 @@
         }
 
         @media (max-width: 600px) {
+            header h1 { font-size: 2.2rem; }
             h2 { font-size: 2rem; }
             .skills-list { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
-            .skills-desc { font-size: 1rem; }
-            nav a { font-size: 1rem; margin: 0 8px; }
+            .skills-desc, .contact-desc { font-size: 1rem; }
+            nav a { font-size: 1rem; margin: 0 10px; }
         }
     </style>
 </head>
 <body>
+
+<header>
+    <h1>Skills & Contact</h1>
+    <p>Hi, I'm <strong>Avinash Kumar</strong> — a Backend & DevOps Engineer passionate about scalable systems and automation. Below are my key skills and ways to connect.</p>
+</header>
+
+<!-- Skills Section -->
 <h2>My Skills</h2>
 <p class="skills-desc">
     Here are some of the technologies and tools I work with:
@@ -133,12 +188,28 @@
         <li th:text="${skill}">Skill</li>
     </ul>
 </div>
+
+<!-- Contact Section -->
+<div class="contact-section" id="contact">
+    <h2>Contact Me</h2>
+    <p class="contact-desc">
+        Feel free to reach out to me through any of the platforms below.
+    </p>
+    <div class="contact-info">
+        <a href="mailto:ak749299.ak@gmail.com">📧 Email</a>
+        <a href="https://www.linkedin.com/in/avinash0001/" target="_blank">🔗 LinkedIn</a>
+        <a href="https://github.com/Avinashkr000" target="_blank">💻 GitHub</a>
+    </div>
+</div>
+
+<!-- Navigation -->
 <nav>
-    <a href="/">Home</a> |
-    <a href="/about">About</a> |
-    <a href="/projects">Projects</a> |
-    <a href="/skills">Skills</a> |
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/projects">Projects</a>
+    <a href="/skills">Skills</a>
     <a href="/contact">Contact</a>
 </nav>
+
 </body>
 </html>

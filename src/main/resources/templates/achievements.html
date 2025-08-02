@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Avinash Portfolio - Home</title>
+    <title>Achievements | Avinash Portfolio</title>
     <style>
         * {
             margin: 0;
@@ -14,44 +14,49 @@
         body {
             height: 100vh;
             background: linear-gradient(135deg, #1f1c2c, #928dab);
+            color: white;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: white;
+            padding: 40px 20px;
             animation: fadeIn 1s ease-in-out;
-            padding: 20px;
         }
 
         .container {
-            text-align: center;
-            padding: 2rem;
+            max-width: 800px;
+            width: 100%;
             background: rgba(0, 0, 0, 0.3);
             border-radius: 20px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+            padding: 2rem;
+            text-align: center;
             backdrop-filter: blur(6px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
             animation: slideIn 1.2s ease forwards;
-            max-width: 700px;
         }
 
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            animation: fadeInText 1s ease-in;
-        }
-
-        p.tagline {
-            font-size: 1.2rem;
+        h2 {
+            font-size: 2rem;
             margin-bottom: 1.5rem;
-            animation: fadeInText 1.3s ease-in;
-            color: #f1f1f1;
+            animation: fadeInText 1.2s ease;
         }
 
-        p.description {
-            font-size: 1rem;
+        ul {
+            list-style: none;
+            padding: 0;
             margin-bottom: 2rem;
-            line-height: 1.6;
-            color: #ddd;
-            animation: fadeInText 1.4s ease-in;
+        }
+
+        li {
+            background-color: rgba(255, 255, 255, 0.1);
+            margin: 0.5rem 0;
+            padding: 0.75rem 1rem;
+            border-radius: 10px;
+            animation: fadeInText 1.4s ease;
+            transition: background 0.3s ease;
+        }
+
+        li:hover {
+            background-color: rgba(255, 255, 255, 0.2);
         }
 
         nav {
@@ -59,8 +64,7 @@
             justify-content: center;
             flex-wrap: wrap;
             gap: 1rem;
-            margin-bottom: 1.5rem;
-            animation: fadeInText 1.5s ease-in;
+            animation: fadeInText 1.6s ease-in;
         }
 
         nav a {
@@ -92,56 +96,34 @@
             width: 100%;
         }
 
-        .socials {
-            margin-top: 1rem;
-            animation: fadeInText 1.6s ease-in;
-        }
-
-        .socials a {
-            display: inline-block;
-            margin: 0 10px;
-            padding: 10px 20px;
-            border-radius: 30px;
-            background: #ffffff20;
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s ease;
-        }
-
-        .socials a:hover {
-            background-color: #ffffff40;
-            transform: scale(1.05);
-        }
-
         @keyframes fadeIn {
-            0% {
+            from {
                 opacity: 0;
                 transform: scale(0.95);
             }
-            100% {
+            to {
                 opacity: 1;
                 transform: scale(1);
             }
         }
 
         @keyframes slideIn {
-            0% {
+            from {
                 transform: translateY(-30px);
                 opacity: 0;
             }
-            100% {
+            to {
                 transform: translateY(0);
                 opacity: 1;
             }
         }
 
         @keyframes fadeInText {
-            0% {
+            from {
                 opacity: 0;
                 transform: translateY(10px);
             }
-            100% {
+            to {
                 opacity: 1;
                 transform: translateY(0);
             }
@@ -150,29 +132,18 @@
 </head>
 <body>
 <div class="container">
-    <h1>Hello, I'm Avinash 👋</h1>
-    <p class="tagline">Aspiring DevOps Engineer & Java Backend Developer</p>
-    <p class="description">
-        I'm a recent B.Tech graduate from Technocrats Institute of Technology, Bhopal.<br>
-        I recently completed a DevOps internship at Capgemini, where I worked on Docker, CI/CD pipelines, and cloud deployments.<br>
-        Passionate about building scalable systems and automation!
-    </p>
-
+    <h2>My Achievements</h2>
+    <ul th:each="ach : ${achievements}">
+        <li th:text="${ach}"></li>
+    </ul>
     <nav>
         <a href="/">Home</a>
         <a href="/about">About</a>
         <a href="/projects">Projects</a>
         <a href="/skills">Skills</a>
+        <a href="/achievements">Achievements</a>
         <a href="/contact">Contact</a>
-        <a href="./achievements">Achievements</a>
-
-
     </nav>
-
-    <div class="socials">
-        <a href="https://github.com/Avinashkr000" target="_blank">GitHub</a>
-        <a href="https://www.linkedin.com/in/avinash0001/" target="_blank">LinkedIn</a>
-    </div>
 </div>
 </body>
 </html>
