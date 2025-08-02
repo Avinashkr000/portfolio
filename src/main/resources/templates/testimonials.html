@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Testimonials | Avinash Portfolio</title>
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    body {
+        background: linear-gradient(to right, #1f1c2c, #928dab);
+        color: white;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        padding: 20px;
+    }
+
+    h2 {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        animation: fadeInDown 1s ease;
+    }
+
+    .testimonial-box {
+        background-color: rgba(255, 255, 255, 0.1);
+        padding: 20px;
+        margin: 15px auto;
+        max-width: 700px;
+        border-radius: 12px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .testimonial-box:hover {
+        transform: scale(1.03);
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+    }
+
+    nav {
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    nav a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 10px;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+        color: #f0db4f;
+    }
+
+    @keyframes fadeInDown {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+  </style>
+</head>
+<body>
+
+<h2>Testimonials</h2>
+
+<div class="testimonial-box">
+  <p>"Avinash is one of the most dedicated engineers I’ve worked with. His passion for DevOps and Java backend is inspiring!"</p>
+  <p><strong>- Pratik Chavan, Mentor at Capgemini</strong></p>
+</div>
+
+<div class="testimonial-box">
+  <p>"His ability to dockerize any Java Spring Boot project and deploy it to EC2 with a proper CI/CD pipeline shows strong expertise."</p>
+  <p><strong>- Senior Developer, Open Source Contributor</strong></p>
+</div>
+
+<div class="testimonial-box">
+  <p>"Highly professional and detail-oriented. He knows how to work in teams and meet deadlines under pressure."</p>
+  <p><strong>- Internship Coordinator, Technocrats Institute of Technology</strong></p>
+</div>
+
+<nav>
+  <a href="/">Home</a> |
+  <a href="/about">About</a> |
+  <a href="/projects">Projects</a> |
+  <a href="/skills">Skills</a> |
+  <a href="/achievements">Achievements</a> |
+  <a href="/blog">Blog</a> |
+  <a href="/testimonials">Testimonials</a> |
+  <a href="/contact">Contact</a>
+</nav>
+
+</body>
+</html>
