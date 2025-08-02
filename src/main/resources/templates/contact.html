@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.w3.org/1999/xhtml">
+<html>
 <head>
-    <title>Skills | Avinash Portfolio</title>
+    <title>Contact | Avinash Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
-
         body {
             background: linear-gradient(135deg, #232526 0%, #414345 100%);
             color: #fff;
@@ -18,12 +17,10 @@
             align-items: center;
             animation: fadeIn 1s;
         }
-
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(30px);}
             to { opacity: 1; transform: translateY(0);}
         }
-
         h2 {
             margin-top: 60px;
             font-size: 2.5rem;
@@ -32,63 +29,55 @@
             text-shadow: 2px 2px 8px #222;
             animation: slideDown 1s;
         }
-
         @keyframes slideDown {
             from { opacity: 0; transform: translateY(-40px);}
             to { opacity: 1; transform: translateY(0);}
         }
-
-        .skills-desc {
+        p {
             font-size: 1.2rem;
+            margin-bottom: 30px;
             color: #e0e0e0;
-            margin-top: 10px;
             text-align: center;
-            max-width: 600px;
+            max-width: 500px;
         }
-
-        .skills-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            margin: 30px auto;
-            max-width: 800px;
-            padding: 0 20px;
-        }
-
-        .skills-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 20px;
+        ul {
             list-style: none;
             padding: 0;
-            margin: 0;
+            margin: 0 0 40px 0;
             width: 100%;
+            max-width: 400px;
         }
-
-        .skills-list li {
-            background: rgba(255, 255, 255, 0.05);
+        ul li {
+            background: rgba(255,255,255,0.05);
+            margin: 15px 0;
             padding: 18px 25px;
             border-radius: 12px;
-            text-align: center;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.15);
             font-size: 1.1rem;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
-            transition: all 0.3s ease-in-out;
-            animation: fadeInUp 0.7s ease;
+            display: flex;
+            align-items: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+            animation: fadeInUp 0.7s;
         }
-
-        .skills-list li:hover {
-            transform: scale(1.05) translateY(-3px);
-            background: rgba(255, 179, 71, 0.1);
-            box-shadow: 0 6px 24px rgba(255, 179, 71, 0.2);
-            color: #ffb347;
+        ul li:hover {
+            transform: scale(1.04) translateY(-3px);
+            box-shadow: 0 6px 24px rgba(255,179,71,0.15);
+            background: rgba(255,179,71,0.08);
         }
-
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(30px);}
             to { opacity: 1; transform: translateY(0);}
         }
-
+        a {
+            color: #ffb347;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.2s, text-shadow 0.2s;
+        }
+        a:hover {
+            color: #fff;
+            text-shadow: 0 0 8px #ffb347;
+        }
         nav {
             margin-top: auto;
             padding: 30px 0 20px 0;
@@ -98,7 +87,6 @@
             border-top: 1px solid #333;
             animation: fadeIn 1.5s;
         }
-
         nav a {
             color: #ffb347;
             margin: 0 18px;
@@ -107,32 +95,28 @@
             transition: color 0.2s, border-bottom 0.2s;
             padding-bottom: 2px;
             border-bottom: 2px solid transparent;
-            text-decoration: none;
         }
-
         nav a:hover {
             color: #fff;
             border-bottom: 2px solid #ffb347;
         }
-
         @media (max-width: 600px) {
             h2 { font-size: 2rem; }
-            .skills-list { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
-            .skills-desc { font-size: 1rem; }
-            nav a { font-size: 1rem; margin: 0 8px; }
+            ul li { font-size: 1rem; padding: 14px 12px;}
+            nav a { font-size: 1rem; margin: 0 8px;}
         }
     </style>
 </head>
 <body>
-<h2>My Skills</h2>
-<p class="skills-desc">
-    Here are some of the technologies and tools I work with:
+<h2>Contact Me</h2>
+<p>
+    Feel free to reach out for collaborations, hiring, or tech talks!
 </p>
-<div class="skills-container">
-    <ul class="skills-list" th:each="skill : ${skills}">
-        <li th:text="${skill}">Skill</li>
-    </ul>
-</div>
+<ul>
+    <li>Email: <a href="mailto:ak749299.ak@gmail.com">ak749299.ak@gmail.com</a></li>
+    <li>LinkedIn: <a href="https://linkedin.com/in/avinash0001/" target="_blank">Avinash on LinkedIn</a></li>
+    <li>GitHub: <a href="https://github.com/Avinashkr000" target="_blank">Avinashkr000</a></li>
+</ul>
 <nav>
     <a href="/">Home</a> |
     <a href="/about">About</a> |
