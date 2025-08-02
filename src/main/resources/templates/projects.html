@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Projects | Avinash Portfolio</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<h2>My Projects</h2>
+<ul th:each="pr : ${projects}">
+    <li>
+        <a th:href="${pr.url}" th:text="${pr.title}"></a> -
+        <span th:text="${pr.description}"></span>
+    </li>
+</ul>
+<nav>
+    <a href="/">Home</a> |
+    <a href="/about">About</a> |
+    <a href="/contact">Contact</a>
+</nav>
+</body>
+</html>

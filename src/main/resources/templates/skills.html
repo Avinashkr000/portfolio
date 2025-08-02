@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Skills | Avinash Portfolio</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<h2>My Skills</h2>
+<ul th:each="skill : ${skills}">
+    <li th:text="${skill}"></li>
+</ul>
+<nav>
+    <a href="/">Home</a> |
+    <a href="/about">About</a> |
+    <a href="/projects">Projects</a> |
+    <a href="/skills">Skills</a> |
+    <a href="/contact">Contact</a>
+</nav>
+</body>
+</html>
