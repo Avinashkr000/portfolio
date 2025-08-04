@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -127,3 +128,135 @@
 
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About Me | Avinash Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1f1c2c, #928dab);
+            color: #fff;
+            font-family: 'Montserrat', Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: fadeIn 1s;
+            padding: 40px 20px;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+            color: #ffb347;
+            text-shadow: 2px 2px 8px #000;
+            animation: slideDown 1s;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .about-container {
+            max-width: 800px;
+            text-align: center;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #e0e0e0;
+            line-height: 1.6;
+            margin: 15px 0;
+            animation: fadeInUp 1.2s ease;
+        }
+
+        nav {
+            margin-top: auto;
+            padding: 30px 0 20px 0;
+            width: 100%;
+            text-align: center;
+            background: rgba(0,0,0,0.15);
+            border-top: 1px solid #333;
+            animation: fadeIn 1.5s;
+        }
+
+        nav a {
+            color: #ffb347;
+            margin: 0 15px;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            transition: color 0.3s, border-bottom 0.3s;
+            padding-bottom: 2px;
+            border-bottom: 2px solid transparent;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            color: #ffffff;
+            border-bottom: 2px solid #ffb347;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 600px) {
+            h2 { font-size: 2rem; }
+            p { font-size: 1rem; }
+            nav a { font-size: 1rem; margin: 0 8px; }
+        }
+    </style>
+</head>
+<body>
+
+<h2>About Avinash</h2>
+
+<div class="about-container">
+    <p>
+        I'm Avinash — a passionate Java/Spring Developer and DevOps enthusiast from Bhopal, India.<br>
+        I love solving real-world problems using backend technologies and deploying scalable applications to the cloud.
+    </p>
+    <p>
+        Recently completed a hands-on internship at Capgemini, where I worked with Docker, CI/CD pipelines, AWS EC2, Git, GitHub, and more.<br>
+        I'm always learning, building, and growing.
+    </p>
+</div>
+
+<nav>
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/projects">Projects</a>
+    <a href="/skills">Skills</a>
+    <a href="/achievements">Achievements</a>
+    <a href="/contact">Contact</a>
+    <a href="/blog">Blog</a> |
+    <a href="/testimonials">Testimonials</a> |
+    <a href="/gallery">Gallery</a> |
+    <a href="/resume">Resume</a> |
+
+
+</nav>
+
+</body>
+</html>
+>>>>>>> feature/resume
