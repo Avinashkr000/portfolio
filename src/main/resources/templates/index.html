@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -182,3 +183,190 @@
 </div>
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Avinash Portfolio - Home</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            background: linear-gradient(135deg, #1f1c2c, #928dab);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            animation: fadeIn 1s ease-in-out;
+            padding: 20px;
+        }
+
+        .container {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(6px);
+            animation: slideIn 1.2s ease forwards;
+            max-width: 700px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInText 1s ease-in;
+        }
+
+        p.tagline {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            animation: fadeInText 1.3s ease-in;
+            color: #f1f1f1;
+        }
+
+        p.description {
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            color: #ddd;
+            animation: fadeInText 1.4s ease-in;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            animation: fadeInText 1.5s ease-in;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 4px;
+            width: 0%;
+            height: 2px;
+            background: #fff;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .socials {
+            margin-top: 1rem;
+            animation: fadeInText 1.6s ease-in;
+        }
+
+        .socials a {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 20px;
+            border-radius: 30px;
+            background: #ffffff20;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s ease;
+        }
+
+        .socials a:hover {
+            background-color: #ffffff40;
+            transform: scale(1.05);
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateY(-30px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInText {
+            0% {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Hello, I'm Avinash 👋</h1>
+    <p class="tagline">Aspiring DevOps Engineer & Java Backend Developer</p>
+    <p class="description">
+        I'm a recent B.Tech graduate from Technocrats Institute of Technology, Bhopal.<br>
+        I recently completed a DevOps internship at Capgemini, where I worked on Docker, CI/CD pipelines, and cloud deployments.<br>
+        Passionate about building scalable systems and automation!
+    </p>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/projects">Projects</a>
+        <a href="/skills">Skills</a>
+        <a href="/contact">Contact</a>
+        <a href="./achievements">Achievements</a>
+        <a href="/blog">Blog</a> |
+        <a href="/testimonials">Testimonials</a> |
+        <a href="/gallery">Gallery</a> |
+        <a href="/resume">Resume</a> |
+
+
+
+
+
+    </nav>
+
+    <div class="socials">
+        <a href="https://github.com/Avinashkr000" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/avinash0001/" target="_blank">LinkedIn</a>
+    </div>
+</div>
+</body>
+</html>
+>>>>>>> feature/resume
