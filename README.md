@@ -39,9 +39,12 @@ This site showcases my **skills, projects, achievements, and experience** in a c
 
 *(Add screenshots here)*  
 ```markdown
-<img width="1899" height="930" alt="image" src="https://github.com/user-attachments/assets/643ce227-65de-4cf9-9f6a-384e4f5ab48e" />
 
-<img width="1722" height="875" alt="image" src="https://github.com/user-attachments/assets/a4b1033c-447a-4ea4-98d9-88289c66775f" />
+![Home Page](<img width="1899" height="930" alt="image" src="https://github.com/user-attachments/assets/643ce227-65de-4cf9-9f6a-384e4f5ab48e" />
+)
+![Projects Section](<img width="1722" height="875" alt="image" src="https://github.com/user-attachments/assets/a4b1033c-447a-4ea4-98d9-88289c66775f" />
+)
+
 
 
 🔥 Run Locally
@@ -86,3 +89,4 @@ GitHub Actions (CI/CD pipeline)
 ✔️ Real-world CI/CD setup (Docker + AWS + GitHub Actions)
 ✔️ Branch-based dev workflow (like industry teams)
 ✔️ 100% hand-written & open-source
+
