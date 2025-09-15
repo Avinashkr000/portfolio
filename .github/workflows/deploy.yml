@@ -1,9 +1,9 @@
-name: CI/CD Pipeline 🚀
+name: 🚀 CI/CD Pipeline (Portfolio)
 
 on:
   push:
     branches:
-      - "main"   # sirf main branch pe push hone pe chalega
+      - "main"   # Sirf main branch push pe chalega
 
 jobs:
   build-and-deploy:
@@ -14,7 +14,7 @@ jobs:
       - name: 📥 Checkout code
         uses: actions/checkout@v4
 
-      # 2. Set up Docker Buildx (better caching & build performance)
+      # 2. Set up Docker Buildx (faster builds with cache)
       - name: 🔧 Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
@@ -25,7 +25,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
-      # 4. Build & push image to DockerHub
+      # 4. Build & push image with caching
       - name: 🐳 Build and Push Docker Image
         uses: docker/build-push-action@v5
         with:
@@ -35,26 +35,33 @@ jobs:
           cache-from: type=registry,ref=avinashkr000/portfolio:cache
           cache-to: type=registry,ref=avinashkr000/portfolio:cache,mode=max
 
-      # 5. Deploy on EC2
+      # 5. Deploy to EC2
       - name: 🚀 Deploy on EC2
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ubuntu
           key: ${{ secrets.EC2_SSH_KEY }}
+          script_stop: true
           script: |
-            set -e
-            echo "📦 Updating container on EC2..."
-            cd ~/portfolio-deploy
-            ./redeploy.sh
+            echo "🛑 Stopping old container..."
+            docker stop portfolio || true
+            docker rm portfolio || true
+
+            echo "⬇️ Pulling latest image..."
+            docker pull avinashkr000/portfolio:latest
+
+            echo "▶️ Starting new container..."
+            docker run -d --name portfolio -p 8080:8080 --restart unless-stopped avinashkr000/portfolio:latest
+
             echo "✅ Deployment successful!"
 
-      # 6. Notify on Success (Optional)
+      # 6. Notify success
       - name: ✅ Notify Success
         if: success()
         run: echo "🎉 Deployment to EC2 successful!"
 
-      # 7. Notify on Failure (Optional)
+      # 7. Notify failure
       - name: ❌ Notify Failure
         if: failure()
         run: echo "⚠️ Deployment failed! Please check logs."
