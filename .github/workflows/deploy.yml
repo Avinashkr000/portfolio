@@ -44,17 +44,21 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script_stop: true
           script: |
-            echo "🛑 Stopping old container..."
+            echo "🛑 Stopping old container (if running)..."
             docker stop portfolio || true
             docker rm portfolio || true
 
-            echo "⬇️ Pulling latest image..."
+            echo "⬇️ Pulling latest image from DockerHub..."
             docker pull avinashkr000/portfolio:latest
 
             echo "▶️ Starting new container..."
-            docker run -d --name portfolio -p 8080:8080 --restart unless-stopped avinashkr000/portfolio:latest
+            docker run -d \
+              --name portfolio \
+              -p 8080:8080 \
+              --restart unless-stopped \
+              avinashkr000/portfolio:latest
 
-            echo "✅ Deployment successful!"
+            echo "✅ Deployment successful on EC2!"
 
       # 6. Notify success
       - name: ✅ Notify Success
