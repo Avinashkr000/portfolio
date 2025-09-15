@@ -1,0 +1,35 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ "main" ]   # jab bhi tu main branch pe push karega, ye chalega
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout repo
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # 2. Login to DockerHub
+      - name: Login to DockerHub
+        run: echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
+
+      # 3. Build & push image
+      - name: Build and Push Docker Image
+        run: |
+          docker build -t avinashkr000/portfolio:latest .
+          docker push avinashkr000/portfolio:latest
+
+      # 4. SSH into EC2 and run redeploy.sh
+      - name: Deploy on EC2
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ubuntu
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            cd ~/portfolio-deploy
+            ./redeploy.sh
