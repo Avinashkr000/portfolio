@@ -1,8 +1,9 @@
-name: CI/CD Pipeline
+name: CI/CD Pipeline 🚀
 
 on:
   push:
-    branches: [ "main" ]   # jab bhi tu main branch pe push karega, ye chalega
+    branches:
+      - "main"   # sirf main branch pe push hone pe chalega
 
 jobs:
   build-and-deploy:
@@ -10,26 +11,50 @@ jobs:
 
     steps:
       # 1. Checkout repo
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
 
-      # 2. Login to DockerHub
-      - name: Login to DockerHub
-        run: echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
+      # 2. Set up Docker Buildx (better caching & build performance)
+      - name: 🔧 Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
 
-      # 3. Build & push image
-      - name: Build and Push Docker Image
-        run: |
-          docker build -t avinashkr000/portfolio:latest .
-          docker push avinashkr000/portfolio:latest
+      # 3. Login to DockerHub
+      - name: 🔑 Login to DockerHub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
-      # 4. SSH into EC2 and run redeploy.sh
-      - name: Deploy on EC2
+      # 4. Build & push image to DockerHub
+      - name: 🐳 Build and Push Docker Image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: avinashkr000/portfolio:latest
+          cache-from: type=registry,ref=avinashkr000/portfolio:cache
+          cache-to: type=registry,ref=avinashkr000/portfolio:cache,mode=max
+
+      # 5. Deploy on EC2
+      - name: 🚀 Deploy on EC2
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ubuntu
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
+            set -e
+            echo "📦 Updating container on EC2..."
             cd ~/portfolio-deploy
             ./redeploy.sh
+            echo "✅ Deployment successful!"
+
+      # 6. Notify on Success (Optional)
+      - name: ✅ Notify Success
+        if: success()
+        run: echo "🎉 Deployment to EC2 successful!"
+
+      # 7. Notify on Failure (Optional)
+      - name: ❌ Notify Failure
+        if: failure()
+        run: echo "⚠️ Deployment failed! Please check logs."
