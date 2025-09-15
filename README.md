@@ -1,76 +1,88 @@
 # 🚀 Avinash’s Spring Boot Portfolio
 
-[🌐 **Live Demo Here**](https://portfolio-3z9h.onrender.com/)
+[🌐 **Live on AWS EC2**](http://13.53.131.239)  
+*(Deployed with Docker + GitHub Actions CI/CD)*  
 
-Welcome to my personal developer portfolio—built completely from scratch with **Java Spring Boot**, deployed via Docker on Render. This site showcases my projects, achievements, skills, and more in a clean, recruiter-friendly way.
+Welcome to my personal **developer portfolio** — built with **Java Spring Boot**, containerized with **Docker**, and deployed on **AWS EC2** using a **full CI/CD pipeline** via GitHub Actions.  
+This site showcases my **skills, projects, achievements, and experience** in a clean, recruiter-friendly way.  
+
+---
+
+## 🏅 Tech Badges
+
+![Java](https://img.shields.io/badge/Java-21-blue?logo=java)  
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.x-brightgreen?logo=springboot)  
+![Docker](https://img.shields.io/badge/Docker-Enabled-blue?logo=docker)  
+![AWS](https://img.shields.io/badge/AWS-EC2-orange?logo=amazonaws)  
+![CI/CD](https://img.shields.io/badge/GitHub%20Actions-CI%2FCD-blue?logo=githubactions)  
 
 ---
 
 ## ✨ Features
 
-- **Home** – Friendly introduction, navigation
-- **About Me** – Short bio, coding journey, personal philosophy
-- **Projects** – Highlighted repositories with links and descriptions
-- **Skills** – List of core technical skills
-- **Achievements** – Leetcode, GitHub, club & course badges
-- **Blog** – Space for future writing (Coming soon!)
-- **Testimonials** – Peer & mentor feedback
-- **Gallery** – Screenshots, certificates, project images
-- **Resume** – Downloadable PDF
-- **Contact** – How to reach me directly
-- **Admin Panel** – (Placeholder for future backend management)
-- **RESTful API** – `/api/projects` endpoint for projects data
+- 🏠 **Home** – Simple introduction & navigation  
+- 👨‍💻 **About Me** – Coding journey, philosophy  
+- 📂 **Projects** – Highlighted repos with links & descriptions  
+- 🛠️ **Skills** – Core technical expertise  
+- 🏆 **Achievements** – LeetCode, GitHub, badges & certificates  
+- ✍️ **Blog** – (Coming soon!)  
+- 💬 **Testimonials** – Peer & mentor feedback  
+- 🖼️ **Gallery** – Certificates, project images, screenshots  
+- 📄 **Resume** – Downloadable PDF  
+- 📞 **Contact** – Reach me directly  
+- 🔑 **Admin Panel** – (Future backend management)  
+- 🌐 **REST API** – `/api/projects` endpoint for project data  
 
 ---
 
 ## 🖥️ Screenshots
 
-> *(Add a screenshot or GIF here – e.g., Home page, Gallery, Resume Download, etc. Use:)*  
-> `![Portfolio Screenshot](assets/screenshot-home.png)`
+*(Add screenshots here)*  
+```markdown
+<img width="1899" height="930" alt="image" src="https://github.com/user-attachments/assets/643ce227-65de-4cf9-9f6a-384e4f5ab48e" />
 
----
+<img width="1722" height="875" alt="image" src="https://github.com/user-attachments/assets/a4b1033c-447a-4ea4-98d9-88289c66775f" />
 
-## 🔥 How to Run Locally
+
+🔥 Run Locally
+# Clone repo
 git clone https://github.com/Avinashkr000/portfolio.git
 cd portfolio
-./mvnw spring-boot:run
 
+# Build with Maven
+./mvnw clean package -DskipTests
+
+# Run with Docker
 docker build -t avinash-portfolio .
 docker run -p 8080:8080 avinash-portfolio
 
-Visit [http://localhost:8080](http://localhost:8080).
 
----
+👉 Visit: http://localhost:8080
 
-## 📦 Tech Stack
+📦 Tech Stack
 
-- Java 21, Spring Boot 3.x
-- Thymeleaf templating
-- Responsive custom CSS
-- Docker
-- Deployed on Render.com (Free Instance)
+Java 21 + Spring Boot 3.x
 
----
+Thymeleaf (views)
 
-## 📇 Contact Me
+Docker (containerization)
 
-- Email: `ak749299.ak@gmail.com`
-- LinkedIn: [linkedin.com/in/avinash0001](https://linkedin.com/in/avinash0001/)
-- [See my live portfolio!](https://portfolio-3z9h.onrender.com/)
+AWS EC2 (deployment)
 
----
+Nginx (reverse proxy)
 
-## 🏅 Why this repo?
+GitHub Actions (CI/CD pipeline)
 
-- Everything written & organized by hand, with a human approach.
-- Every feature developed in its own git branch—code and workflow mirrors real jobs/teams.
-- All config, structure, and instructions open-source for learning!
+📇 Contact
 
----
+📧 Email → ak749299.ak@gmail.com
 
-## ⭐️ Like it? Star this repo & connect!
+💼 LinkedIn → linkedin.com/in/avinash0001
 
+🌍 Live AWS Demo → http://13.53.131.239
 
-Or run the included Docker container:
+🏅 Why this Repo?
 
-
+✔️ Real-world CI/CD setup (Docker + AWS + GitHub Actions)
+✔️ Branch-based dev workflow (like industry teams)
+✔️ 100% hand-written & open-source
